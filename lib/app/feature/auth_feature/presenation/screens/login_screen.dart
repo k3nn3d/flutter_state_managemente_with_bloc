@@ -4,7 +4,6 @@ import 'package:bloc_app/app/feature/auth_feature/presenation/screens/sign_up_sc
 import 'package:bloc_app/app/feature/auth_feature/presenation/widgets/auth_gradient_button.dart';
 import 'package:bloc_app/app/feature/auth_feature/presenation/widgets/auth_textfiled.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
