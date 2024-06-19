@@ -12,3 +12,16 @@ final class AuthSingUpEvent extends Authevent{
     required this.password
   });
 }
+
+final class AuthSingInEvent extends Authevent{
+  final String email;
+  final String password;
+
+  AuthSingInEvent({
+    required this.email, 
+    required this.password
+  });
+}
+final class AuthIsUserLoggedInEvent extends Authevent{
+
+}
