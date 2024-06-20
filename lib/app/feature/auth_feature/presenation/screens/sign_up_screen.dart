@@ -6,6 +6,7 @@ import 'package:bloc_app/app/feature/auth_feature/presenation/bloc/auth_bloc_blo
 import 'package:bloc_app/app/feature/auth_feature/presenation/screens/login_screen.dart';
 import 'package:bloc_app/app/feature/auth_feature/presenation/widgets/auth_gradient_button.dart';
 import 'package:bloc_app/app/feature/auth_feature/presenation/widgets/auth_textfiled.dart';
+import 'package:bloc_app/app/feature/blog/presentation/screens/blog_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -32,17 +33,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body:  Padding(
         padding:const EdgeInsets.all(15.0),
         child: BlocConsumer<AuthBloc, AuthState>(
           listener: (context, state){
             if (state is AuthFailureState) {
               showSnackBar(context, state.message);
+            }else if(state is AuthSuccessState){
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const BlogScreen()), (route) => false);
             }
           },
           builder: (context, state) {
             if(state is AuthLoadingState){
-            
               return const Loader();
             }
             return Form(
